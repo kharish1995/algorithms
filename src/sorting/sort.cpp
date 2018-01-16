@@ -42,6 +42,11 @@ void Sort::selection_sort()
     printArray();
 }
 
+void Sort::merge_sort()
+{
+
+}
+
 Sort::~Sort()
 {
 
