@@ -14,12 +14,12 @@
 #include <memory>
 
 struct Node{
-    int data;
-    Node* next;
+    int data_;
+    Node* next_;
 };
 
 class Linkedlist{
-    Node *head_;
+    Node* head_;
 public:
     Linkedlist();
     Linkedlist(Node* head);
