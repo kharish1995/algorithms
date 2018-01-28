@@ -15,17 +15,20 @@
 
 struct Node{
     int data_;
-    Node* next_;
+    std::shared_ptr<Node> next_;
 };
 
 class Linkedlist{
-    Node* head_;
+    std::shared_ptr<Node> head_;
+    int length;
 public:
     Linkedlist();
-    Linkedlist(Node* head);
+    Linkedlist(std::shared_ptr<Node> head);
     void add_node(int);
     void delete_node();
     void display();
+    void get_length();
+    int node_at_position(int position);
     ~Linkedlist();
 };
 
