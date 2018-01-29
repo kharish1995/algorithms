@@ -38,6 +38,30 @@ int Linkedlist::node_at_position(int position)
         count++;
         temp = temp->next_;
     }
+    std::cout << "There is no node at: " << position << std::endl;
+}
+
+int Linkedlist::node_from_end(int position)
+{
+    std::shared_ptr<Node> temp1 = std::make_shared<Node>(Node{head_->data_, head_});
+    std::shared_ptr<Node> temp2 = std::make_shared<Node>(Node{head_->data_, head_});
+    int count = 0;
+    get_length();
+    if(position <= 0 || position > length){
+        std::cout << "Position out of bounds";
+        return -1;
+    }
+    while(temp1 != nullptr){
+        if(count == position)
+            break;
+        count++;
+        temp1 = temp1->next_;
+    }
+    while(temp1 != nullptr){
+        temp2 = temp2->next_;
+        temp1 = temp1->next_;
+    }
+    return temp2->data_;
 }
 
 void Linkedlist::delete_node()

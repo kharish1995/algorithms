@@ -29,6 +29,7 @@ public:
     void display();
     void get_length();
     int node_at_position(int position);
+    int node_from_end(int position);
     ~Linkedlist();
 };
 
