@@ -1,6 +1,6 @@
 project(algorithms)
 cmake_minimum_required(VERSION 2.8)
-add_definitions("-std=c++0x") 
+add_definitions("-std=c++0x")
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src/include)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src)

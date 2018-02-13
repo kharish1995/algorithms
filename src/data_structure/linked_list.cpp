@@ -30,6 +30,10 @@ void Linkedlist::add_node(int data)
 
 int Linkedlist::node_at_position(int position)
 {
+    if(head_ == nullptr){
+        std::cout << "List Empty";
+        return false;
+    }
     std::shared_ptr<Node> temp = std::make_shared<Node>(Node{head_->data_, head_});
     int count = 0;
     while(temp != nullptr){
@@ -43,6 +47,10 @@ int Linkedlist::node_at_position(int position)
 
 int Linkedlist::node_from_end(int position)
 {
+    if(head_ == nullptr){
+        std::cout << "List Empty";
+        return false;
+    }
     std::shared_ptr<Node> temp1 = std::make_shared<Node>(Node{head_->data_, head_});
     std::shared_ptr<Node> temp2 = std::make_shared<Node>(Node{head_->data_, head_});
     int count = 0;
@@ -71,9 +79,11 @@ void Linkedlist::delete_node()
 
 void Linkedlist::display()
 {
+    if(head_ == nullptr) return;
     std::shared_ptr<Node> temp = std::make_shared<Node>(Node{head_->data_, head_->next_});
+    std::cout << temp.use_count() << '\t';
     while(temp != nullptr){
-        std::cout << temp->data_ << '\t';
+        //std::cout << temp->data_ << '\t';
         temp = temp->next_;
     }
     std::cout << std::endl;
@@ -81,6 +91,7 @@ void Linkedlist::display()
 
 void Linkedlist::get_length()
 {
+    if(head_ == nullptr) return;
     std::shared_ptr<Node> temp = std::make_shared<Node>(Node{head_->data_, head_->next_});
     while(temp != nullptr){
         length++;
