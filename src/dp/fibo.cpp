@@ -1,15 +1,20 @@
+// Based on Jason Tuner's version : https://www.youtube.com/watch?v=hErD6WGqPlA
 #include <iostream>
 #include <vector>
 
-int fibo(int n)
-{
-    std::vector<int> fib;
-    fib.resize(n + 1);
-    fib.at(0) = 0;
-    fib.at(1) = 1;
+template<int T>
+struct fibo{
+    static const int val = fibo<T-1>::val + fibo<T-2>::val;
+};
 
-    for(unsigned int i = 2; i <= n; ++i){
-        fib.at(i) = fib.at(i-1) + fib.at(i-2);
-    }
-    return fib.at(n);
-}
+template<>
+struct fibo<0>
+{
+    static const int val = 0;
+};
+
+template<>
+struct fibo<1>
+{
+    static const int val = 1;
+};
